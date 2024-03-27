@@ -10,4 +10,13 @@ It gets the current remote origin url `https://<your_bitbucket_host>/scm/<projec
 It then combines the info of your remote origin url, current file path and branch to `https://<your_bitbucket_host>/projects/<project_key>/repos/<repo_name>/browse<file_path>?at=refs/heads/<branch_name>` and opens it in your browser.
 
 ### Setup
-With [lazy.nvim](https://github.com/folke/lazy.nvim) TODO
+With [lazy.nvim](https://github.com/folke/lazy.nvim)
+```lua
+{
+    "Speiser/bitbucket-url.nvim",
+    config = function()
+        local bitbucket = require("bitbucket-url")
+        vim.keymap.set("n", "<leader>bb", bitbucket.open_current_in_bitbucket, {})
+    end,
+}
+```
